@@ -4,29 +4,29 @@
 ### 统一入口
 主目录下的interface.php为唯一入口，其他文件需禁止访问，nginx配置如：
 
-server {
-    	listen      80;
-    	server_name localhost;
-    	location ^~ /interface.php {
-	 	root /data/web;
-         	fastcgi_pass   127.0.0.1:9000;
-         	fastcgi_index  index.php;
-         	include        fastcgi_params;
-         	fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-         	fastcgi_param SERVER_NAME $http_host;
-         	fastcgi_ignore_client_abort on;
-         	fastcgi_connect_timeout 30;
-         	fastcgi_send_timeout 30;
-         	fastcgi_read_timeout 30;
-         	fastcgi_buffer_size 64k;
-         	fastcgi_buffers 4 64k;
-         	fastcgi_busy_buffers_size 128k;
-         	fastcgi_temp_file_write_size 128k;
+	server {
+    		listen      80;
+    		server_name localhost;
+    		location ^~ /interface.php {
+	 		root /data/web;
+         		fastcgi_pass   127.0.0.1:9000;
+         		fastcgi_index  index.php;
+         		include        fastcgi_params;
+         		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+         		fastcgi_param SERVER_NAME $http_host;
+         		fastcgi_ignore_client_abort on;
+         		fastcgi_connect_timeout 30;
+         		fastcgi_send_timeout 30;
+         		fastcgi_read_timeout 30;
+         		fastcgi_buffer_size 64k;
+         		fastcgi_buffers 4 64k;
+         		fastcgi_busy_buffers_size 128k;
+         		fastcgi_temp_file_write_size 128k;
+		}
+		location / {
+			deny all;
+		}
 	}
-	location / {
-		deny all;
-	}
-}
 interface.php强制进行了输入参数校验，防止sql注入
 
 ### 系统配置文件
