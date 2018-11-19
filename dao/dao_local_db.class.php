@@ -15,7 +15,7 @@ class DaoLocalDb extends Dao
     }
 
     //获取用户状态描述
-    public function getAuthStatusDes($status)
+    public function getUserStatusDes($status)
     {
         switch ($status) {
             case self::STATUS_INIT:
@@ -28,7 +28,7 @@ class DaoLocalDb extends Dao
     }
 
     //获取用户信息详情
-    public function getUserAuthInfo($name = '')
+    public function getUserInfo($name = '')
     {
         try {
             $sql = "select * from test.user where name='{$name}' and status = " . self::STATUS_PASS;
