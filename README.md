@@ -63,7 +63,7 @@ common/ErrorCode.php，其中0表示成功，其他值都是错误
 
 ### 数据库操作类
 
-dao/dao.class.php为基础类，实际使用方法参加dao/dao_local_db.class.php
+dao/dao.class.php为基础类，实际使用方法见dao/dao_local_db.class.php
 
 
 ### 开发接口
