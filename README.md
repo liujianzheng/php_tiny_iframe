@@ -5,9 +5,9 @@
 主目录下的interface.php为唯一入口，其他文件需禁止访问，nginx配置如：
 
 	server {
-    		listen      80;
-    		server_name localhost;
-    		location ^~ /interface.php {
+    	listen      80;
+    	server_name localhost;
+    	location ^~ /interface.php {
 	 		root /data/web;
          		fastcgi_pass   127.0.0.1:9000;
          		fastcgi_index  index.php;
