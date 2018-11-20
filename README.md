@@ -50,7 +50,9 @@ common/Auth.php，由isAuthAllowIn()统一控制，示例代码只限制了访�
 
 ### 日志基本类
 
-common/SysLog.php，直接使用函数sys_log($msg)打日志，日志放在log/目录下，注意给log目录设置777权限
+common/SysLog.php，直接使用函数sys_log($msg)打日志
+
+日志文件放在log/目录下，按天生成日志文件，注意给log目录设置777权限：chmod 777 log
 
 每条日志默认加前缀：“[时间][进程ID][客户端IP][服务器IP][执行PHP文件][函数][行数] ”
 
@@ -74,9 +76,9 @@ dao/dao.class.php为基础类，实际使用方法见dao/dao_local_db.class.php
 
 ### 开发接口
 
-interface/目录下放实际开发接口，文件按指定规则命名，如
+interface/目录下放实际开发接口，文件按指定规则命名
 
-Test_FirstInterface.php，以下划线分割，test为目录，支持目录嵌套
+如 Test_FirstInterface.php，以下划线分割，test为目录，支持目录嵌套
 
 具体路由规则见common/GlobalFunction.php中的instance($interfaceName)函数
 
