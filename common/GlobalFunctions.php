@@ -42,14 +42,15 @@ function doCurlGetRequest($url, $timeout = 3, $header = array())
 }
 
 
-//常规输入监测，在interface.php所有处理之前执行
+//常规输入监测，interface.php强制校验输入参数，防止sql注入
 function isValidInput($data)
 {
-    if (empty($data)) {
-        return true;
-    }
+    //不校验的参数key列表，需在接口中精确校验
+    $param_white_list = [
+        'xxxxxx',
+    ];
     foreach ($data as $key => $value) {
-        if (empty($value)) {
+        if (in_array($key, $param_white_list) || empty($value)) {
             continue;
         }
         if (is_array($value)) {
@@ -65,11 +66,8 @@ function isValidInput($data)
         if (!empty($str1) || !empty($str2) || !empty($str3)) {
             return false;
         }
-        if (!empty($str4)) {
-            $t_stamp = strtotime($str4);
-            if ($t_stamp <= 0) {
-                return false;
-            }
+        if (!empty($str4) && strtotime($str4) <= 0) {
+            return false;
         }
     }
     return true;
