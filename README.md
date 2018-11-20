@@ -5,7 +5,7 @@
 
 主目录下的interface.php为唯一入口
 
-interface.php对输入参数强制禁用危险字符，防止sql注入，则实际接口中无需再校验参数
+interface.php对输入参数，通过禁用危险字符防止sql注入，则实际接口中无需再校验参数
 
 nginx配置只开放interface.php，其他文件都禁止访问，配置如：
 
