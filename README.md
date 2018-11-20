@@ -4,7 +4,7 @@
 
 ### 统一入口
 
-主目录下的interface.php为唯一入口
+主目录下的interface.php为唯一入口，无需配置路由，接口文件按指定规则命名，一个文件对应一个接口
 
 interface.php对输入参数，通过禁用危险字符防止sql注入，则实际接口中无需再校验参数
 
@@ -75,9 +75,9 @@ dao/dao.class.php为基础类，实际使用方法见dao/dao_local_db.class.php
 
 ### 开发接口
 
-interface/目录下放实际开发接口
+interface/目录下放实际开发接口，文件按指定规则命名，如
 
-接口命名如Test_FirstInterface.php，以下划线分割，test为目录，支持目录嵌套
+Test_FirstInterface.php，以下划线分割，test为目录，支持目录嵌套
 
 具体路由规则见common/GlobalFunction.php中的instance($interfaceName)函数
 
