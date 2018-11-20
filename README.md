@@ -16,7 +16,6 @@ nginx配置只开放interface.php，其他文件都禁止访问，配置如：
     	location ^~ /interface.php {
 	 		root /data/web;
          		fastcgi_pass   127.0.0.1:9000;
-         		fastcgi_index  index.php;
          		include        fastcgi_params;
          		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
          		fastcgi_param SERVER_NAME $http_host;
