@@ -11,7 +11,7 @@ class DaoLocalDb extends Dao
     function __construct()
     {
         $config = getConf('LOCALHOST_DB');
-        parent::__construct($config['HOST'], $config['PORT'], $config['USER'], $config['PASSWD'], $config['DBNAME']);
+        parent::__construct($config['HOST'], $config['USER'], $config['PASSWD'], $config['DBNAME'], $config['PORT']);
     }
 
     //获取用户状态描述
