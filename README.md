@@ -36,12 +36,12 @@ conf/common.inc.ini，控制开发、测试、生产环境，各有一个单独.
 
 ### 读配置基础类
 
-common/ConfFactory.php，直接使用函数getConf($key)读取配置文件，读取示例参见dao/dao_local_db.class.php
+common/ConfFactory.php，直接使用getConf($key)读取配置文件，读取示例参见dao/dao_local_db.class.php
 
 
 ### 访问权限控制
 
-common/Auth.php，由isAuthAllowIn()函数统一控制，示例代码只有访问IP白名单控制，IP白名单见系统配置文件
+common/Auth.php，由isAuthAllowIn()统一控制，示例代码只限制了访问IP白名单，IP白名单配置见系统配置.ini文件
 
 
 ### 日志基本类
@@ -53,7 +53,9 @@ common/SysLog.php，直接使用函数sys_log($msg)打日志，日志放在log/�
 
 ### 系统公用函数
 
-common/GlobalFunction.php，主要包含curl的get、post请求，系统返回值格式化，常规字符串校验，获取客户端、服务器IP等
+common/GlobalFunction.php，主要包含curl的get、post请求，系统返回值格式化
+
+及一些常规字符串校验，获取客户端、服务器IP等
 
 
 ### 错误码定义
@@ -76,6 +78,6 @@ interface/目录下放实际开发接口
 
 ### 调用方式
 
-curl http://127.0.0.1/interface.php?interfaceName=Test_FirstInterface&page=0&size=2&other=xxx
+http://127.0.0.1/interface.php?interfaceName=Test_FirstInterface&page=0&size=2&other=xxx
 
 
