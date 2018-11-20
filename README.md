@@ -76,9 +76,9 @@ dao/dao.class.php为基础类，实际使用方法见dao/dao_local_db.class.php
 
 ### 开发接口
 
-interface/目录下放实际开发接口，文件按指定规则命名，如
+interface/目录下放实际开发接口，文件按指定规则命名
 
-Test_FirstInterface.php，以下划线分割，test为目录，支持目录嵌套
+如 Test_FirstInterface.php，以下划线分割，test为目录，支持目录嵌套
 
 具体路由规则见common/GlobalFunction.php中的instance($interfaceName)函数
 
