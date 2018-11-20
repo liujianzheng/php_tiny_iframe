@@ -3,6 +3,7 @@ require_once dirname(__FILE__) . '/common/Common.php';
 try {
 //    if($_SERVER['REQUEST_METHOD'] !== 'POST'){
 //        echo getReturnData(NOTE, 'Only support POST request');
+//        exit;
 //    }
 //    $input_str = file_get_contents("php://input");
 //    $request = json_decode($input_str, true);
@@ -18,7 +19,8 @@ try {
 
 function Process($request)
 {
-    if(!isAuthAllowIn()){
+    sys_log(json_encode($request));
+    if (!isAuthAllowIn()) {
         return getReturnData(NOTE, 'IP not authorize[' . getClientIp() . ']');
     }
     if (!isValidInput($request)) {
