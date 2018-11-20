@@ -32,7 +32,7 @@ class DaoLocalDb extends Dao
     {
         try {
             $sql = "select * from test.user where name='{$name}' and status = " . self::STATUS_PASS;
-            $result = $this->session_->ExecuteSelectSql($sql);
+            $result = $this->ExecuteSelectSql($sql);
             return empty($result) ? array() : $result[0];
         } catch (Exception $e) {
             return array();
