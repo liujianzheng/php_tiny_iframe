@@ -2,7 +2,9 @@
 只用来做接口的PHP微型框架
 
 ### 统一入口
-主目录下的interface.php为唯一入口，其他文件需禁止访问，nginx配置如：
+主目录下的interface.php为唯一入口，
+interface.php对输入参数强制禁用危险字符，防止sql注入，则实际接口中无需再校验参数
+nginx配置只开放interface.php，其他文件都禁止访问，配置如：
 
 	server {
     	listen      80;
@@ -27,7 +29,6 @@
 			deny all;
 		}
 	}
-interface.php对输入参数强制禁用危险字符，防止sql注入，则接口中接收的参数无需再校验
 
 ### 系统配置文件
 
