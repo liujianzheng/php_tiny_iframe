@@ -27,7 +27,7 @@
 			deny all;
 		}
 	}
-interface.php强制进行了输入参数校验，防止sql注入
+interface.php对输入参数强制禁用危险字符，防止sql注入，则接口中接收的参数无需再校验
 
 ### 系统配置文件
 
