@@ -82,6 +82,6 @@ Test_FirstInterface.php，以下划线分割，test为目录，支持目录嵌�
 
 ### 调用方式
 
-http://127.0.0.1/interface.php?interfaceName=Test_FirstInterface&page=0&size=2&other=xxx
+http://127.0.0.1/interface.php?interfaceName=Test_FirstInterface&name=xxx
 
 
