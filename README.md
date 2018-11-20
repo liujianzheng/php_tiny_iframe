@@ -2,8 +2,11 @@
 只用来做接口的PHP微型框架
 
 ### 统一入口
-主目录下的interface.php为唯一入口，
+
+主目录下的interface.php为唯一入口
+
 interface.php对输入参数强制禁用危险字符，防止sql注入，则实际接口中无需再校验参数
+
 nginx配置只开放interface.php，其他文件都禁止访问，配置如：
 
 	server {
@@ -73,7 +76,7 @@ dao/dao.class.php为基础类，实际使用方法见dao/dao_local_db.class.php
 
 interface/目录下放实际开发接口
 
-接口命名如Test_FirstInterface.php，系统以下划线分割，test为目录
+接口命名如Test_FirstInterface.php，以下划线分割，test为目录，支持目录嵌套
 
 具体路由规则见common/GlobalFunction.php中的instance($interfaceName)函数
 
