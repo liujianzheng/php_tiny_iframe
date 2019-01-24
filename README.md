@@ -70,6 +70,9 @@ common/GlobalFunction.php，主要包含curl的get、post请求，系统返回�
 
 common/ErrorCode.php，其中0表示成功，其他值都是错误
 
+### redis操作类
+
+cache/redis_server.php为基础类，实际使用方法见interface/test/Test_OpRead.php
 
 ### 数据库操作类
 
