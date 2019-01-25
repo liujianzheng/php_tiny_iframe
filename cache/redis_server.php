@@ -67,7 +67,7 @@ class RedisServer
     {
         $req_num = $this->_redis->incr($mark_key);
         $ttl = $this->_redis->ttl($mark_key);
-        if ($ttl <= 0) {
+        if ($ttl < 0) {
             $this->_redis->expire($mark_key, $time_interval);
         }
         if ($req_num > $limit_num) {
