@@ -4,6 +4,8 @@
 
 在成熟的框架上做减法，删到删无可删，学习成本在15分钟左右，方便内网部署。
 
+yum -y install php php-devel php-fpm php-mysql php-pecl-redis
+
 ### 统一入口
 
 主目录下的interface.php为唯一入口，无需配置路由，接口文件按指定规则命名，一个文件对应一个接口
@@ -70,6 +72,9 @@ common/GlobalFunction.php，主要包含curl的get、post请求，系统返回�
 
 common/ErrorCode.php，其中0表示成功，其他值都是错误
 
+### redis操作类
+
+cache/redis_server.php为基础类，实际使用方法见interface/test/Test_OpRead.php
 
 ### 数据库操作类
 
