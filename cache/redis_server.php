@@ -8,7 +8,7 @@ class RedisServer
         $this->_redis = new Redis();
         $ret = $this->_redis->connect($config['HOST'], $config['PORT'], 3);
         if (!$ret) {
-            sys_log('cache server redis connect failed');
+            sys_log('cache server redis connect failed[please check host and port]');
             throw new Exception('cache server connect failed');
         }
         if (!empty($config['PASSWD'])) {
