@@ -12,7 +12,6 @@ try {
     header("Content-Length:" . strlen($result));
     echo $result;
 } catch (Exception $e) {
-    sys_log('Exception: ' . $e->getFile() . '[line :' . $e->getLine() . ']' . ' ' . $e->getMessage());
     $result = getReturnData(ERROR, $e->getMessage());
     header("Content-Length:" . strlen($result));
     echo $result;
