@@ -8,13 +8,13 @@ class RedisServer
         $this->_redis = new Redis();
         $ret = $this->_redis->connect($config['HOST'], $config['PORT'], 3);
         if (!$ret) {
-            sys_log('cache server redis connect failed, error:' . $this->_redis->getLastError());
+            sys_log('cache server redis connect failed');
             throw new Exception('cache server connect failed');
         }
         if (!empty($config['PASSWD'])) {
             $ret = $this->_redis->auth($config['PASSWD']);
             if (!$ret) {
-                sys_log('cache server redis auth failed, error:' . $this->_redis->getLastError());
+                sys_log('cache server redis auth failed [password error]');
                 throw new Exception('cache server auth failed');
             }
         }
