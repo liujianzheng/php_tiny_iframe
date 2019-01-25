@@ -6,9 +6,17 @@ class RedisServer
     {
         $config = getConf('LOCALHOST_REDIS');
         $this->_redis = new Redis();
-        $this->_redis->connect($config['HOST'], $config['PORT'], 3);
+        $ret = $this->_redis->connect($config['HOST'], $config['PORT'], 3);
+        if (!$ret) {
+            sys_log('cache server redis connect failed, error:' . $this->_redis->getLastError());
+            throw new Exception('cache server connect failed');
+        }
         if (!empty($config['PASSWD'])) {
-            $this->_redis->auth($config['PASSWD']);
+            $ret = $this->_redis->auth($config['PASSWD']);
+            if (!$ret) {
+                sys_log('cache server redis auth failed, error:' . $this->_redis->getLastError());
+                throw new Exception('cache server auth failed');
+            }
         }
         if (!empty($config['DB'])) {
             $this->_redis->select($config['DB']);
